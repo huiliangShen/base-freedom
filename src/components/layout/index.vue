@@ -2,7 +2,7 @@
     <div class="layout-wrap">
         <Header/>
         <main>
-            <CAside/>
+           <!-- <CAside/>-->
             <router-view></router-view>
             <Right></Right>
         </main>

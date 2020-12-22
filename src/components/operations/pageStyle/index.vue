@@ -1,11 +1,10 @@
 <template>
-    <Form :label-width="75" class="operation-control-form page-style-wrap" label-position="left"
+    <Form class="operation-control-form page-style-wrap" label-position="left"
           :label-colon="true">
         <FormItem :label-width="0">
             <div class="bg-wrap">
                 <div class="no-img" @click="addBg" v-if="!pageStyle.backgroundImage">
-                    <img src="@/assets/imgs/bg.png" alt="">
-                    <span>选择背景</span>
+                    <Button>点击选择图片</Button>
                 </div>
                 <template v-else>
                     <div class="has-img">
@@ -14,56 +13,33 @@
                 </template>
             </div>
             <div class="has-footer" v-if="!!pageStyle.backgroundImage">
-                <Button type="primary" @click="handleClip">裁切背景</Button>
-                <Button type="primary" @click="handleChange">替换背景</Button>
-                <Button type="primary" @click="handleDelete">删除背景</Button>
+                <Button @click="handleClip">裁切背景</Button>
+                <Button @click="handleChange">替换背景</Button>
+                <Button @click="handleDelete">删除背景</Button>
             </div>
         </FormItem>
-        <FormItem label="屏幕方向">
-            <Select @on-change="handleDom" v-model="pageStyle.direction">
-                <Option value="horizontal">横向</Option>
-                <Option value="vertical">纵向</Option>
-            </Select>
-        </FormItem>
-        <FormItem label="模板大小">
+        <FormItem>
             <Select @on-change="(v) => handleSize(v, 'hoz')" v-model="pageStyle.size"
                     v-show="pageStyle.direction === 'horizontal'">
                 <Option v-for="(item, i) in horizontalList" :key="i" :value="item.val">{{item.label}}</Option>
             </Select>
-            <Select @on-change="(v) => handleSize(v, 'ver')" v-model="pageStyle.size"
-                    v-show="pageStyle.direction === 'vertical'">
-                <Option v-for="(item, i) in verticalList" :key="i" :value="item.val">{{item.label}}</Option>
-            </Select>
         </FormItem>
-        <!--<FormItem label="透明度">
-            <Row :gutter="8">
-                <Col span="15">
-                    <Slider :step="0.1" :max="1" :min="0"></Slider>
-                </Col>
-                <Col span="1">&nbsp;</Col>
-                <Col span="6">
-                    <InputNumber v-model="formItem.input"></InputNumber>
-                </Col>
-            </Row>
-        </FormItem>-->
-        <FormItem label="背景颜色">
+        <FormItem>
             <ColorPicker alpha v-model="pageStyle.backgroundColor" @on-change="handleDom"/>
         </FormItem>
     </Form>
 </template>
 
 <script>
-    // import {transform} from '@/helper'
     import {mapMutations, mapGetters} from 'vuex'
     import types from '@/store/module/app/mutationsType'
-    import {horizontalList, verticalList} from '@/config'
+    import {horizontalList} from '@/config'
 
     export default {
         name: 'pageStyle',
         data() {
             return {
-                horizontalList,
-                verticalList
+                horizontalList
             }
         },
         props: {
@@ -191,7 +167,7 @@
 
         .has-footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             margin-top: 15px;
         }
     }

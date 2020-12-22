@@ -2,8 +2,6 @@
     <div class="maker-main" @click.stop.prevent="cancelLayer" v-if="!!data">
         <div class="maker-main-content">
             <HomePage :page="page"/>
-            <!--标线-->
-            <Rules/>
         </div>
         <img-dialog></img-dialog>
         <cropper-img-dialog></cropper-img-dialog>
@@ -41,7 +39,6 @@
             ]),
             page() {
                 let {pages} = this.data
-                // console.log('1111', pages[this.activePage].layers)
                 return this.activePage > -1 ? pages[this.activePage] : []
             }
         },
@@ -58,17 +55,9 @@
             ])
         },
         mounted() {
-            const id = this.$route.query.id || 0
-            const uid = this.$route.query.uid || 0
-            const gid = this.$route.query.gid || 0
-
-            if (!uid) {
-                this.$Message.warning('缺少必要参数，三秒后将关闭本页')
-                setTimeout(() => {
-                    window.history.back(-1)
-                }, 3000)
-                return false
-            }
+            const id = 0
+            const uid = 0
+            const gid = 0
             this.init({id, uid, gid})
         }
     }

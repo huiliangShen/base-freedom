@@ -18,23 +18,13 @@ export const headers = [
         img: 'iconfont icon-tupian'
     },
     {
-        name: '跑马灯',
-        type: 'run',
-        img: 'iconfont icon-paomadeng-01'
-    },
-    {
-        name: '音乐',
-        type: 'music',
-        img: 'iconfont icon-yinle'
-    }
-]
-
-export const others = [
-    {
         name: '二维码',
         type: 'qrcode',
         icon: 'iconfont icon-erweima'
     }
+]
+
+export const others = [
 ]
 
 export const TypeName = {
@@ -46,17 +36,9 @@ export const TypeName = {
         name: '文本组件',
         icon: 'iconfont icon-wenben'
     },
-    'music': {
-        name: '音乐组件',
-        icon: 'iconfont icon-yinle'
-    },
     'qrcode': {
         name: '二维码组件',
         icon: 'iconfont icon-tianqi'
-    },
-    'run': {
-        name: '跑马灯组件',
-        icon: 'iconfont icon-paomadeng-01'
     }
 }
 
@@ -82,55 +64,6 @@ export const common = ({type, data}) => ({
 
 /* eslint max-len: 0 */
 export const fontSize = [12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120]
-
-export const timeFormat = [
-    {
-        label: 'xx年xx月xx日xx时xx分xx秒',
-        val: 'yyyy年MM月dd日hh时mm分ss秒'
-    },
-    {
-        label: 'xx年xx月xx日',
-        val: 'yyyy年MM月dd日'
-    },
-    {
-        label: 'xx时xx分xx秒',
-        val: 'hh时mm分ss秒'
-    }
-]
-
-export const clickItems = [
-    {
-        label: '无',
-        val: 0
-    },
-    {
-        label: '跳转链接',
-        val: 1
-    },
-    {
-        label: '跳转页面',
-        val: 2
-    }
-]
-
-export const directions = [
-    {
-        label: '从右往左',
-        val: 'left'
-    },
-    {
-        label: '从左往右',
-        val: 'right'
-    },
-    {
-        label: '从上往下',
-        val: 'up'
-    },
-    {
-        label: '从下往上',
-        val: 'down'
-    }
-]
 
 export const horizontalList = [
     {

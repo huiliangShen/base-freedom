@@ -5,9 +5,9 @@
                 :class="{'active': selected === 1 && !activeLayer}" @click="selectItem(1)">页面属性
             </li>
             <li class="operation-control-head-title" v-show="!!activeLayer"
-                :class="{'active': selected === 1 && !!activeLayer}" @click="selectItem(1)">元件属性
+                :class="{'active': selected === 1 && !!activeLayer}" @click="selectItem(1)">插件属性
             </li>
-            <li class="operation-control-head-title" :class="{'active': selected === 2}" @click="selectItem(2)">图层</li>
+           <!-- <li class="operation-control-head-title" :class="{'active': selected === 2}" @click="selectItem(2)">图层</li>-->
         </ul>
         <div class="operation-control-body" v-show="selected === 1 && !activeLayer">
             <page-style :pageStyle="pageStyle"></page-style>
@@ -25,18 +25,11 @@
                 <template v-else-if="activeLayer.type === 'qrcode'">
                     <plugin-code-layer :activeData="activeData"></plugin-code-layer>
                 </template>
-                <template  v-else-if="activeLayer.type === 'run'">
-                    <plugin-run-layer :active-data="activeData"></plugin-run-layer>
-                </template>
             </common-operation>
         </div>
-        <!--音乐选择界面-->
-        <div class="operation-control-body" v-show="selected === 1 && !!activeLayer && activeLayer.type === 'music'">
-            <plugin-music-layer :activeData="activeData" :activeLayer="activeLayer"></plugin-music-layer>
-        </div>
-        <div class="operation-control-body" v-show="selected === 2">
+        <!--<div class="operation-control-body" v-show="selected === 2">
             <operation-layer></operation-layer>
-        </div>
+        </div>-->
     </div>
 </template>
 
@@ -47,10 +40,8 @@
     import CommonOperation from './commonOperation'
     import {
         PluginImgLayer,
-        PluginMusicLayer,
         PluginTextLayer,
-        PluginCodeLayer,
-        PluginRunLayer
+        PluginCodeLayer
     } from './pluginLayer'
 
     export default {
@@ -116,10 +107,8 @@
             OperationLayer,
             CommonOperation,
             PluginImgLayer,
-            PluginMusicLayer,
             PluginTextLayer,
-            PluginCodeLayer,
-            PluginRunLayer
+            PluginCodeLayer
         },
         methods: {
             selectItem(i) {

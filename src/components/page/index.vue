@@ -7,16 +7,6 @@
                 <!--可能存在多页需要的页面-->
                 <div class="maker-canvas-view">
                     <!--此处可添加标准线-->
-                    <div class="maker-canvas-grid" v-show="showGrid && !asideDom">
-                        <ul class="maker-canvas-grid-row">
-                            <li v-for="item in rows" :key="item"
-                                :style="{'top': item + 'px', 'background-color': color}"></li>
-                        </ul>
-                        <ul class="maker-canvas-grid-column">
-                            <li v-for="item in columns" :key="item"
-                                :style="{'left': item + 'px', 'background-color': color}"></li>
-                        </ul>
-                    </div>
                     <div class="maker-swiper-layers">
                         <!--具体的元素-->
                         <div v-for="(layer, i) in page.layers" v-if="page.layers.length > 0"
@@ -29,18 +19,14 @@
                                        :height="page.style.height"
                                        :dragging="dragging && activeLayer !== layer"
                                        :gridColumn="gridColumn"
-                                       :style="{'display': layer.type === 'music' ? 'none' : ''}"
                                        :active="activeLayer === layer"
                                        @deleteLayer="deleteLayer"
                                        @operationFn="operationFn"
                                        @mouseEnd="mouseEnd"
                                        :stopOperation="stopOperation">
                                 <page-img-plugin v-if="layer.type === 'img'" :layer="layer"></page-img-plugin>
-                                <page-music-plugin v-else-if="layer.type === 'music'"
-                                                   :layer="layer"></page-music-plugin>
                                 <page-text-plugin v-else-if="layer.type === 'text'" :layer="layer"></page-text-plugin>
                                 <page-code-plugin v-else-if="layer.type === 'qrcode'" :layer="layer"></page-code-plugin>
-                                <page-run-plugin v-else-if="layer.type === 'run'" :layer="layer"></page-run-plugin>
                             </MyElement>
                         </div>
                     </div>
@@ -55,10 +41,8 @@
     import MyElement from '@/components/element'
     import {
         PageImgPlugin,
-        PageMusicPlugin,
         PageTextPlugin,
-        PageCodePlugin,
-        PageRunPlugin
+        PageCodePlugin
     } from '@/components/pagePlugin'
     import types from '@/store/module/app/mutationsType'
     import {transform} from '@/helper'
@@ -71,10 +55,8 @@
         components: {
             MyElement,
             PageImgPlugin,
-            PageMusicPlugin,
             PageTextPlugin,
             PageCodePlugin,
-            PageRunPlugin
         },
         inject: ['asideDom'],
         props: {

@@ -2,8 +2,7 @@
     <transition name="aside-show" appear>
         <aside v-show="asideShow" v-if="!!data">
             <ul class="aside-wrap">
-                <li class="aside-title" :class="{'active': asideSelected === 1}" @click="asideSelect(1)">页面</li>
-                <li class="aside-title" :class="{'active': asideSelected === 2}" @click="asideSelect(2)">模板</li>
+                <li class="aside-title" :class="{'active': asideSelected === 1}">页面</li>
             </ul>
             <div class="aside-panel" v-show="asideSelected === 1">
                 <ul class="aside-layer-pages">
@@ -13,7 +12,6 @@
                                 <span class="aside-operation-num">{{i + 1}}</span>
                                 <span class="aside-operation-icon-wrap">
                                 <Icon type="ios-arrow-up"/>
-                                    <!--<Icon custom="iconfont icon-edit" size="20"/>-->
                                 <Icon custom="iconfont icon-fuzhi" size="20" @click.stop.prevent="copyPage(page)"/>
                                 <Icon custom="iconfont icon-delete" size="20" @click.stop.prevent="deletePage(i)"
                                       :class="{'disable': pages.length <= 1}"/>
@@ -42,14 +40,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="aside-panel" v-show="asideSelected === 2">
-                <ul class="maker-layer-demo">
-                    <li class="maker-layer-item" v-for="item in list" :key="item.id" @click="setData(item.data)">
-                        <img :src="item.path" alt="">
-                    </li>
-                </ul>
-            </div>
-
             <remove-page ref="removePage" @confirmRemovePage="confirmRemovePage"></remove-page>
         </aside>
     </transition>
@@ -61,8 +51,6 @@
     import HomePage from '@/components/page'
     import types from '@/store/module/app/mutationsType'
     import RemovePage from '@/components/dialog/removePage'
-    import {getTemplate} from '@/api'
-    import {ERROR_CODE} from '@/api/config'
 
     export default {
         name: 'cAside',
@@ -99,17 +87,6 @@
             RemovePage
         },
         methods: {
-            getTemplates() {
-                getTemplate()
-                    .then(res => {
-                        if (res.code === ERROR_CODE) {
-                            this.list = res.data
-                        }
-                    })
-            },
-            asideSelect(i) {
-                this.asideSelected = i
-            },
             changePage(i) {
                 this[types.CHANGE_PAGE](i)
             },
@@ -129,9 +106,6 @@
                 const PAGE = JSON.parse(JSON.stringify(page))
                 this[types.ADD_PAGE](PAGE)
             },
-            setData(data) {
-                this[types.SET_DATA](data)
-            },
             ...mapMutations([
                 types.CHANGE_PAGE,
                 types.ADD_PAGE,
@@ -139,9 +113,6 @@
                 types.UPDATE_PAGES,
                 types.SET_DATA
             ])
-        },
-        mounted() {
-            this.getTemplates()
         }
     }
 </script>
@@ -263,7 +234,7 @@
 
                         &.active {
                             .aside-layer-page-preview-detail {
-                                border: 1px solid #3A7DEB;
+                                border: 1px solid rgba(130, 112, 98, 0.6);
                             }
                         }
 

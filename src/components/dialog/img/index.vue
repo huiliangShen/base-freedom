@@ -187,7 +187,7 @@
                 cursor: pointer;
 
                 &.active {
-                    color: #3A7DEB;
+                    color: $theme-bg;
                     border: 1px solid $theme-bg;
                 }
             }
