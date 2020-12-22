@@ -2,17 +2,16 @@
     <header>
         <nav>
             <Icon type="ios-menu" size="24" style="vertical-align: middle;cursor:pointer;" @click="showAside"/>
-            布局编辑器
+            easy编辑器
         </nav>
 
         <a class="btn blue btn-exit" @click.stop.prevent="exit">
-            <Icon custom="iconfont icon-tuichu" size="20"></Icon>
             <span>退出</span>
         </a>
-        <a class="btn blue btn-msave" @click.stop.prevent="saveTo">
+      <!--  <a class="btn blue btn-msave" @click.stop.prevent="saveTo">
             <Icon custom="iconfont icon-baocun-" size="18"></Icon>
             <span>保存为模板</span>
-        </a>
+        </a>-->
        <!-- <a class="btn blue btn-preview">
             <Icon custom="iconfont icon-preview" size="20"></Icon>
             <span>预览</span>

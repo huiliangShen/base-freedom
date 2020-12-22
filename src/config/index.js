@@ -26,12 +26,12 @@ export const headers = [
         name: '音乐',
         type: 'music',
         img: 'iconfont icon-yinle'
-    },
-    {
+    }
+   /* {
         name: '视频区',
         type: 'video',
         img: 'iconfont icon-shipin'
-    }
+    } */
 ]
 
 export const others = [
