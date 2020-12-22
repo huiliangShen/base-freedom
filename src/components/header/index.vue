@@ -132,16 +132,8 @@
                         this[types.SET_CHANGE_IMG](false)
                         break
                     }
-                    case 'video': {
-                        this.addVideo()
-                        break
-                    }
                     case 'text': {
                         this.addText()
-                        break
-                    }
-                    case 'time': {
-                        this.addTime()
                         break
                     }
                     case 'music': {
@@ -152,43 +144,11 @@
                         this.addQRCode()
                         break
                     }
-                    case 'weather': {
-                        this.addWeather()
-                        break
-                    }
-                    case 'btn': {
-                        this.addBtn()
-                        break
-                    }
                     case 'run': {
                         this.addRun()
                         break
                     }
                 }
-            },
-            addTime() {
-                const data = {
-                    originalWidth: 130,
-                    originalHeight: 27,
-                    type: 'yyyy年MM月dd日hh时mm分ss秒',
-                    style: {
-                        color: 'rgba(0,0,0,1)',
-                        fontSize: 18
-                    }
-                }
-                this.addLayer({type: 'time', data})
-            },
-            addVideo() {
-                const data = {
-                    playId: 0,
-                    playName: '暂无',
-                    playItemList: [],
-                    originalWidth: 100,
-                    originalHeight: 50,
-                    backgroundImage: '',
-                    border: 0
-                }
-                this.addLayer({type: 'video', data})
             },
             addText() {
                 const data = {
@@ -236,36 +196,6 @@
                     originalHeight: 150
                 }
                 this.addLayer({type: 'qrcode', data})
-            },
-            addWeather() {
-                const data = {
-                    area: [],
-                    style: {
-                        color: 'rgba(0,0,0,1)',
-                        fontSize: 16
-                    },
-                    originalWidth: 250,
-                    originalHeight: 120
-                }
-                this.addLayer({type: 'weather', data})
-            },
-            addBtn() {
-                const data = {
-                    text: '按钮',
-                    jumpType: 0,
-                    url: '',
-                    page: -1,
-                    style: {
-                        letterSpacing: 0,
-                        color: 'rgba(0,0,0,1)',
-                        fontSize: 16,
-                        fontWeight: '',
-                        fontStyle: ''
-                    },
-                    originalWidth: 130,
-                    originalHeight: 27
-                }
-                this.addLayer({type: 'btn', data})
             },
             addRun() {
                 const data = {
@@ -340,6 +270,8 @@
         background: $header-bg;
         color: $font-color;
         user-select: none;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.65);
+        border-bottom: 1px solid #E5E5E5;
 
         // overflow: hidden;
         nav {

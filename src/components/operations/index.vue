@@ -22,40 +22,12 @@
                     <plugin-text-layer :activeData="activeData" :activeLayerIndex="activeLayerIndex"
                                        :activeLayer="activeLayer"></plugin-text-layer>
                 </template>
-                <template v-else-if="activeLayer.type === 'time'">
-                    <plugin-time-layer :activeData="activeData"></plugin-time-layer>
-                </template>
                 <template v-else-if="activeLayer.type === 'qrcode'">
                     <plugin-code-layer :activeData="activeData"></plugin-code-layer>
-                </template>
-                <template v-else-if="activeLayer.type === 'weather'">
-                    <plugin-weather-layer :activeData="activeData"></plugin-weather-layer>
                 </template>
                 <template  v-else-if="activeLayer.type === 'run'">
                     <plugin-run-layer :active-data="activeData"></plugin-run-layer>
                 </template>
-
-                <!--start btn plugin-->
-                <template v-slot:default v-if="activeLayer.type === 'btn'">
-                    <plugin-btn-layer :activeData="activeData"></plugin-btn-layer>
-                </template>
-                <template v-slot:content v-if="activeLayer.type === 'btn'">
-                    <plugin-btn-link-layer :activeData="activeData" :activeLayerIndex="activeLayerIndex"></plugin-btn-link-layer>
-                </template>
-                <!--end btn plugin-->
-            </common-operation>
-
-            <common-operation :estyle="estyle" :cstyle="cstyle" v-else-if="!!activeLayer && activeLayer.type === 'video'">
-                <!-- start video plugin -->
-                <template v-slot:default v-if="activeLayer.type === 'video'">
-                    <plugin-video-basic-layer :activeData="activeData" :activeLayer="activeLayer"
-                                              :activeLayerIndex="activeLayerIndex"></plugin-video-basic-layer>
-                </template>
-                <template v-slot:content v-if="activeLayer.type === 'video'">
-                    <plugin-video-layer :activeData="activeData" :activeLayer="activeLayer"
-                                        :activeLayerIndex="activeLayerIndex"></plugin-video-layer>
-                </template>
-                <!-- end video plugin -->
             </common-operation>
         </div>
         <!--音乐选择界面-->
@@ -77,13 +49,7 @@
         PluginImgLayer,
         PluginMusicLayer,
         PluginTextLayer,
-        PluginVideoLayer,
-        PluginVideoBasicLayer,
-        PluginTimeLayer,
         PluginCodeLayer,
-        PluginWeatherLayer,
-        PluginBtnLayer,
-        PluginBtnLinkLayer,
         PluginRunLayer
     } from './pluginLayer'
 
@@ -146,45 +112,19 @@
             }
         },
         components: {
-            PluginWeatherLayer,
             PageStyle,
             OperationLayer,
             CommonOperation,
             PluginImgLayer,
             PluginMusicLayer,
             PluginTextLayer,
-            PluginVideoLayer,
-            PluginVideoBasicLayer,
-            PluginTimeLayer,
             PluginCodeLayer,
-            PluginBtnLayer,
-            PluginBtnLinkLayer,
             PluginRunLayer
         },
         methods: {
             selectItem(i) {
                 this.selected = i
-            },
-            /* operationDom() {
-                // debugger
-                this.originObj.estyle = this.estyle || this.activeLayer.estyle
-                // this.originObj.style = this.cstyle || this.activeLayer.style
-                if (this.cstyle) {
-                    let obj = Object.assign({}, this.cstyle)
-                    obj.transform = `rotate(${obj.transform}deg)`
-                    this.originObj.style = obj
-                } else {
-                    this.originObj.style = this.activeLayer.style
-                }
-                this[types.OPERATION_DOM]({layer: this.originObj, i: this.activeLayerIndex})
-            },
-            changeImage() {
-                this[types.SHOW_IMG_DIALOG](true)
-            },
-            ...mapMutations([
-                types.OPERATION_DOM,
-                types.SHOW_IMG_DIALOG
-            ]) */
+            }
         }
     }
 </script>

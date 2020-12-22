@@ -39,19 +39,9 @@
                                 <page-music-plugin v-else-if="layer.type === 'music'"
                                                    :layer="layer"></page-music-plugin>
                                 <page-text-plugin v-else-if="layer.type === 'text'" :layer="layer"></page-text-plugin>
-                                <page-video-plugin v-else-if="layer.type === 'video'"
-                                                   :layer="layer"></page-video-plugin>
-                                <page-time-plugin v-else-if="layer.type === 'time'" :layer="layer"></page-time-plugin>
                                 <page-code-plugin v-else-if="layer.type === 'qrcode'" :layer="layer"></page-code-plugin>
-                                <page-weather-plugin v-else-if="layer.type === 'weather'"
-                                                     :layer="layer"></page-weather-plugin>
-                                <page-btn-plugin v-else-if="layer.type === 'btn'" :layer="layer"></page-btn-plugin>
                                 <page-run-plugin v-else-if="layer.type === 'run'" :layer="layer"></page-run-plugin>
                             </MyElement>
-                            <!-- <MyElement v-else-if="layer.type === 'video'" :layerItem="layer" :active="activeLayer === layer">
-                                 <video width="100%" height="100%" controls
-                                        src="http://vfx.mtime.cn/Video/2019/03/09/mp4/190309153658147087.mp4"></video>
-                             </MyElement>-->
                         </div>
                     </div>
                 </div>
@@ -67,11 +57,7 @@
         PageImgPlugin,
         PageMusicPlugin,
         PageTextPlugin,
-        PageVideoPlugin,
-        PageTimePlugin,
         PageCodePlugin,
-        PageWeatherPlugin,
-        PageBtnPlugin,
         PageRunPlugin
     } from '@/components/pagePlugin'
     import types from '@/store/module/app/mutationsType'
@@ -87,11 +73,7 @@
             PageImgPlugin,
             PageMusicPlugin,
             PageTextPlugin,
-            PageVideoPlugin,
-            PageTimePlugin,
             PageCodePlugin,
-            PageWeatherPlugin,
-            PageBtnPlugin,
             PageRunPlugin
         },
         inject: ['asideDom'],

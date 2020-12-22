@@ -27,33 +27,13 @@ export const headers = [
         type: 'music',
         img: 'iconfont icon-yinle'
     }
-   /* {
-        name: '视频区',
-        type: 'video',
-        img: 'iconfont icon-shipin'
-    } */
 ]
 
 export const others = [
     {
-        name: '时间',
-        type: 'time',
-        icon: 'iconfont icon-shijian'
-    },
-    {
         name: '二维码',
         type: 'qrcode',
         icon: 'iconfont icon-erweima'
-    },
-    {
-        name: '按钮',
-        type: 'btn',
-        icon: 'iconfont icon-anniu'
-    },
-    {
-        name: '天气',
-        type: 'weather',
-        icon: 'iconfont icon-tianqi'
     }
 ]
 
@@ -70,24 +50,8 @@ export const TypeName = {
         name: '音乐组件',
         icon: 'iconfont icon-yinle'
     },
-    'video': {
-        name: '视频区组件',
-        icon: 'iconfont icon-shipin'
-    },
-    'time': {
-        name: '时间组件',
-        icon: 'iconfont icon-shijian'
-    },
     'qrcode': {
         name: '二维码组件',
-        icon: 'iconfont icon-tianqi'
-    },
-    'btn': {
-        name: '按钮组件',
-        icon: 'iconfont icon-anniu'
-    },
-    'weather': {
-        name: '天气组件',
         icon: 'iconfont icon-tianqi'
     },
     'run': {
